@@ -2068,7 +2068,7 @@ func (s *MigrationService) getFileSize(filePath string) int64 {
 // downloadCasaOSFiles 下载CasaOS文件
 func (s *MigrationService) downloadCasaOSFiles(conn *models.SystemConnection, progressCallback func(int, string)) (string, error) {
 	// 构建下载URL
-	downloadURL := fmt.Sprintf("http://%s/v1/batch?token=%s&files=/var/lib/casaos/apps,/DATA/AppData", conn.Host, conn.Token)
+	downloadURL := fmt.Sprintf("http://%s:%d/v1/batch?token=%s&files=/var/lib/casaos/apps,/DATA/AppData", conn.Host, conn.Port, conn.Token)
 
 	progressCallback(10, "Start downloading")
 
